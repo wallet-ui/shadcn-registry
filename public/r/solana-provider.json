@@ -13,7 +13,7 @@
   "files": [
     {
       "path": "registry/new-york/blocks/solana-provider/solana-provider.tsx",
-      "content": "'use client'\n\nimport dynamic from 'next/dynamic'\nimport { ReactNode } from 'react'\nimport {\n  createSolanaDevnet,\n  createSolanaLocalnet,\n  createSolanaTestnet,\n  createWalletUiConfig,\n  WalletUi\n} from '@wallet-ui/react'\nimport { WalletUiGillProvider } from '@wallet-ui/react-gill'\n\nexport const WalletButton = dynamic(async () => (await import('@wallet-ui/react')).WalletUiDropdown, {\n  ssr: false,\n})\nexport const ClusterButton = dynamic(async () => (await import('@wallet-ui/react')).WalletUiClusterDropdown, {\n  ssr: false,\n})\n\nconst config = createWalletUiConfig({\n  clusters: [createSolanaDevnet(), createSolanaLocalnet(), createSolanaTestnet()],\n})\n\nexport function SolanaProvider({ children }: { children: ReactNode }) {\n  return <WalletUi config={config}>\n    <WalletUiGillProvider>\n      {children}\n    </WalletUiGillProvider>\n  </WalletUi>\n}\n",
+      "content": "'use client'\n\nimport { ReactNode } from 'react'\nimport {\n  createSolanaDevnet,\n  createSolanaLocalnet,\n  createSolanaTestnet,\n  createWalletUiConfig,\n  WalletUi\n} from '@wallet-ui/react'\nimport { WalletUiGillProvider } from '@wallet-ui/react-gill'\n\nconst config = createWalletUiConfig({\n  clusters: [createSolanaDevnet(), createSolanaLocalnet(), createSolanaTestnet()],\n})\n\nexport function SolanaProvider({ children }: { children: ReactNode }) {\n  return <WalletUi config={config}>\n    <WalletUiGillProvider>\n      {children}\n    </WalletUiGillProvider>\n  </WalletUi>\n}\n",
       "type": "registry:component"
     },
     {
