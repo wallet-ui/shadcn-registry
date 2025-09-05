@@ -25,7 +25,11 @@ export default function Home() {
         <h1 className="text-3xl font-bold tracking-tight">Wallet UI Shadcn Registry</h1>
         <p className="text-muted-foreground">
           The <a target="_blank" rel="noopener noreferrer" className="underline" href='https://ui.shadcn.com/docs/registry'>Shadcn registry</a>{' '}
-          for <a target="_blank" rel="noopener noreferrer" className="underline" href='https://wallet-ui.dev'>Wallet UI</a> components.
+          for <a target="_blank" rel="noopener noreferrer" className="underline" href='https://wallet-ui.dev'>Wallet UI</a> components
+          gets you started with Solana faster than ever!
+        </p>
+        <p className="text-muted-foreground">
+          Support for Solana Mobile comes out of the box!
         </p>
       </header>
       <main className="flex flex-col flex-1 gap-8">
@@ -61,8 +65,10 @@ export default function Home() {
         <InstallationCodeBlock code={codeUpdateShadcn} />
         <h3 className="text-xl font-semibold">2. Generate the components</h3>
         <p className="text-foreground">
-          Generate the <code className='font-bold'>SolanaProvider</code> and <code className='font-bold'>useSolana</code>{' '}
-          hook.
+          Generate the <code className='font-bold'>SolanaProvider</code> with the {' '}
+          <a target="_blank" rel="noopener noreferrer" className="underline" href='https://docs.solanamobile.com/mobile-wallet-adapter/web-apps'>
+            Solana Mobile Wallet Adapter
+          </a> and the <code className='font-bold'>useSolana</code>{' '} hook.
         </p>
         <InstallationInstallPackage packageName='@wallet-ui/solana-provider' />
         <p className="text-foreground">
