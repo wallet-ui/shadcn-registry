@@ -22,11 +22,15 @@
       "type": "registry:component",
       "title": "Solana Provider",
       "description": "A provider that configures Wallet UI for your app.",
-      "dependencies": ["@wallet-ui/react@canary", "@wallet-ui/react-gill@canary", "gill@latest"],
+      "dependencies": ["@wallet-ui/react@canary", "@wallet-ui/react-gill@canary", "@solana-mobile/wallet-standard-mobile", "gill@latest"],
       "registryDependencies": [],
       "files": [
         {
           "path": "registry/new-york/blocks/solana-provider/solana-provider.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york/blocks/solana-provider/solana-mobile-wallet-adapter.ts",
           "type": "registry:component"
         },
         {

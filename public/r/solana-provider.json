@@ -7,13 +7,19 @@
   "dependencies": [
     "@wallet-ui/react@canary",
     "@wallet-ui/react-gill@canary",
+    "@solana-mobile/wallet-standard-mobile",
     "gill@latest"
   ],
   "registryDependencies": [],
   "files": [
     {
       "path": "registry/new-york/blocks/solana-provider/solana-provider.tsx",
-      "content": "'use client'\n\nimport { ReactNode } from 'react'\nimport {\n  createSolanaDevnet,\n  createSolanaLocalnet,\n  createSolanaTestnet,\n  createWalletUiConfig,\n  WalletUi\n} from '@wallet-ui/react'\nimport { WalletUiGillProvider } from '@wallet-ui/react-gill'\n\nconst config = createWalletUiConfig({\n  clusters: [createSolanaDevnet(), createSolanaLocalnet(), createSolanaTestnet()],\n})\n\nexport function SolanaProvider({ children }: { children: ReactNode }) {\n  return <WalletUi config={config}>\n    <WalletUiGillProvider>\n      {children}\n    </WalletUiGillProvider>\n  </WalletUi>\n}\n",
+      "content": "'use client'\n\nimport { ReactNode } from 'react'\nimport {\n  createSolanaDevnet,\n  createSolanaLocalnet,\n  createSolanaTestnet,\n  createWalletUiConfig,\n  WalletUi\n} from '@wallet-ui/react'\nimport { WalletUiGillProvider } from '@wallet-ui/react-gill'\nimport { solanaMobileWalletAdapter } from \"./solana-mobile-wallet-adapter\";\n\nconst config = createWalletUiConfig({\n  clusters: [createSolanaDevnet(), createSolanaLocalnet(), createSolanaTestnet()],\n})\n\nsolanaMobileWalletAdapter({ clusters: config.clusters })\n\nexport function SolanaProvider({ children }: { children: ReactNode }) {\n  return <WalletUi config={config}>\n    <WalletUiGillProvider>\n      {children}\n    </WalletUiGillProvider>\n  </WalletUi>\n}\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/new-york/blocks/solana-provider/solana-mobile-wallet-adapter.ts",
+      "content": "'use client'\n\nimport { SolanaCluster } from '@wallet-ui/react'\nimport {\n  createDefaultAuthorizationCache,\n  createDefaultChainSelector,\n  createDefaultWalletNotFoundHandler,\n  registerMwa,\n} from '@solana-mobile/wallet-standard-mobile';\n\nexport function solanaMobileWalletAdapter({ appIdentity = { name: 'Wallet UI' }, clusters }: { appIdentity?: { uri?: string; icon?: string; name?: string }, clusters: SolanaCluster[] }) {\n  if (typeof window === 'undefined') {\n    console.warn(`Solana Mobile Wallet Adapter not loaded: no window object`)\n    return\n  }\n  if (!window.isSecureContext) {\n    console.warn(`Solana Mobile Wallet Adapter not loaded: https connection required`)\n    return\n  }\n  const chains = clusters.map(c => c.id)\n  if (!chains.length) {\n    console.warn(`Solana Mobile Wallet Adapter not loaded: no clusters provided`)\n    return\n  }\n  registerMwa({\n    appIdentity,\n    authorizationCache: createDefaultAuthorizationCache(),\n    chains,\n    chainSelector: createDefaultChainSelector(),\n    onWalletNotFound: createDefaultWalletNotFoundHandler(),\n  })\n  console.log(`Loaded Solana Mobile Wallet Adapter`)\n}",
       "type": "registry:component"
     },
     {
