@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "solana-provider",
+  "type": "registry:component",
+  "title": "Solana Provider",
+  "description": "A provider that configures Wallet UI for your app.",
+  "dependencies": [
+    "@wallet-ui/react@canary"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/new-york/blocks/solana-provider/solana-provider.tsx",
+      "content": "'use client'\n\nimport dynamic from 'next/dynamic'\nimport { ReactNode } from 'react'\nimport {\n  createSolanaDevnet,\n  createSolanaLocalnet,\n  createSolanaTestnet,\n  createWalletUiConfig,\n  WalletUi\n} from '@wallet-ui/react'\n\nexport const WalletButton = dynamic(async () => (await import('@wallet-ui/react')).WalletUiDropdown, {\n  ssr: false,\n})\nexport const ClusterButton = dynamic(async () => (await import('@wallet-ui/react')).WalletUiClusterDropdown, {\n  ssr: false,\n})\n\nconst config = createWalletUiConfig({\n  clusters: [createSolanaDevnet(), createSolanaLocalnet(), createSolanaTestnet()],\n})\n\nexport function SolanaProvider({ children }: { children: ReactNode }) {\n  return <WalletUi config={config}>{children}</WalletUi>\n}\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/new-york/blocks/solana-provider/use-solana.tsx",
+      "content": "import { useWalletUi } from '@wallet-ui/react'\n\n/**\n * Custom hook to abstract Wallet UI and related functionality from your app.\n *\n * This is a great place to add custom shared Solana logic or clients.\n */\nexport function useSolana() {\n  const walletUi = useWalletUi()\n\n  return {\n    ...walletUi,\n  }\n}\n",
+      "type": "registry:hook"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "acme",
+  "homepage": "https://acme.com",
+  "items": [
+    {
+      "name": "cluster-dropdown",
+      "type": "registry:component",
+      "title": "Cluster Dropdown",
+      "description": "A dropdown menu to select a Solana cluster",
+      "dependencies": ["@wallet-ui/react@canary"],
+      "registryDependencies": ["button", "dropdown-menu"],
+      "files": [
+        {
+          "path": "registry/new-york/blocks/cluster-dropdown/cluster-dropdown.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "solana-provider",
+      "type": "registry:component",
+      "title": "Solana Provider",
+      "description": "A provider that configures Wallet UI for your app.",
+      "dependencies": ["@wallet-ui/react@canary"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/new-york/blocks/solana-provider/solana-provider.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/new-york/blocks/solana-provider/use-solana.tsx",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "wallet-dropdown",
+      "type": "registry:component",
+      "title": "Wallet Dropdown",
+      "description": "A dropdown menu to select a Solana wallets",
+      "dependencies": ["@wallet-ui/react@canary"],
+      "registryDependencies": ["avatar", "button", "dropdown-menu"],
+      "files": [
+        {
+          "path": "registry/new-york/blocks/wallet-dropdown/wallet-dropdown.tsx",
+          "type": "registry:component"
+        }
+      ]
+    }
+  ]
+}

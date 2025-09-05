@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "wallet-dropdown",
+  "type": "registry:component",
+  "title": "Wallet Dropdown",
+  "description": "A dropdown menu to select a Solana wallets",
+  "dependencies": [
+    "@wallet-ui/react@canary"
+  ],
+  "registryDependencies": [
+    "avatar",
+    "button",
+    "dropdown-menu"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/blocks/wallet-dropdown/wallet-dropdown.tsx",
+      "content": "'use client';\n\nimport {\n  DropdownMenu,\n  DropdownMenuContent,\n  DropdownMenuItem,\n  DropdownMenuSeparator,\n  DropdownMenuTrigger,\n} from '@/registry/new-york/ui/dropdown-menu';\nimport * as React from 'react';\nimport { ellipsify, UiWallet, useWalletUi, useWalletUiWallet } from '@wallet-ui/react';\nimport { Button } from '@/registry/new-york/ui/button';\nimport { Avatar, AvatarFallback, AvatarImage } from '@/registry/new-york/ui/avatar';\nimport { cn } from '@/lib/utils';\n\nfunction WalletAvatar({ className, wallet }: { className?: string; wallet: UiWallet }) {\n  return (\n    <Avatar className={cn('rounded-md h-6 w-6', className)}>\n      <AvatarImage src={wallet.icon} alt={wallet.name} />\n      <AvatarFallback>{wallet.name[0]}</AvatarFallback>\n    </Avatar>\n  );\n}\n\nfunction WalletDropdownItem({ wallet }: { wallet: UiWallet }) {\n  const { connect } = useWalletUiWallet({ wallet });\n\n  return (\n    <DropdownMenuItem\n      className='cursor-pointer'\n      key={wallet.name}\n      onClick={() => {\n        return connect();\n      }}\n    >\n      {wallet.icon ? <WalletAvatar wallet={wallet} /> : null}\n      {wallet.name}\n    </DropdownMenuItem>\n  );\n}\n\nfunction WalletDropdown() {\n  const { account, connected, copy, disconnect, wallet, wallets } = useWalletUi();\n  return (\n    <DropdownMenu>\n      <DropdownMenuTrigger asChild>\n        <Button variant=\"outline\" className='cursor-pointer'>\n          {wallet?.icon ? <WalletAvatar wallet={wallet} /> : null}\n          {connected ? (account ? ellipsify(account.address) : wallet?.name) : 'Select Wallet'}\n        </Button>\n      </DropdownMenuTrigger>\n      <DropdownMenuContent>\n        {account ? (\n          <>\n            <DropdownMenuItem className='cursor-pointer' onClick={copy}>Copy address</DropdownMenuItem>\n            <DropdownMenuItem className='cursor-pointer' onClick={disconnect}>Disconnect</DropdownMenuItem>\n            <DropdownMenuSeparator />\n          </>\n        ) : null}\n        {wallets.map(wallet => (\n          <WalletDropdownItem key={wallet.name} wallet={wallet} />\n        ))}\n      </DropdownMenuContent>\n    </DropdownMenu>\n  );\n}\n\n\nexport { WalletDropdown }",
+      "type": "registry:component"
+    }
+  ]
+}
