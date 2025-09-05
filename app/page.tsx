@@ -42,23 +42,23 @@ export default function Home() {
           Add the <code className='font-bold'>@wallet-ui</code> registry in your shadcn config.
         </p>
         <InstallationCodeBlock code={codeUpdateShadcn} />
-        <h3 className="text-xl font-semibold">2. Generate a Solana Provider</h3>
+        <h3 className="text-xl font-semibold">2. Generate the components</h3>
         <p className="text-foreground">
-          Generate the <code className='font-bold'>SolanaProvider</code> and the <code className='font-bold'>useSolana</code> hook.
+          Generate the <code className='font-bold'>SolanaProvider</code> and <code className='font-bold'>useSolana</code>{' '}
+          hook.
         </p>
         <InstallationInstallPackage packageName='@wallet-ui/solana-provider' />
+        <p className="text-foreground">
+          Generate the <code className='font-bold'>ClusterDropdown</code> and <code className='font-bold'>WalletDropdown</code>{' '}
+          components.
+        </p>
+        <InstallationInstallPackage packageName='@wallet-ui/cluster-dropdown @wallet-ui/wallet-dropdown' />
         <h3 className="text-xl font-semibold">3. Update layout</h3>
         <p className="text-foreground">
           Add the <code className='font-bold'>SolanaProvider</code> to the root layout of your app.
         </p>
         <InstallationCodeBlock code={codeUpdateLayout} />
-        <h3 className="text-xl font-semibold">4. Generate the components</h3>
-        <p className="text-foreground">
-          Generate the <code className='font-bold'>ClusterDropdown</code> and the <code className='font-bold'>WalletDropdown</code> components.
-        </p>
-        <InstallationInstallPackage packageName='@wallet-ui/cluster-dropdown' />
-        <InstallationInstallPackage packageName='@wallet-ui/wallet-dropdown' />
-        <h3 className="text-xl font-semibold">5. Use the components</h3>
+        <h3 className="text-xl font-semibold">4. Use the components</h3>
         <p className="text-foreground">
           Add the <code className='font-bold'>ClusterDropdown</code> and the <code className='font-bold'>WalletDropdown</code> components to your page.
         </p>
