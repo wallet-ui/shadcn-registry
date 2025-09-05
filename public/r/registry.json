@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "acme",
-  "homepage": "https://acme.com",
+  "name": "wallet-ui",
+  "homepage": "https://registry.wallet-ui.dev",
   "items": [
     {
       "name": "cluster-dropdown",
@@ -9,7 +9,7 @@
       "title": "Cluster Dropdown",
       "description": "A dropdown menu to select a Solana cluster",
       "dependencies": ["@wallet-ui/react@canary"],
-      "registryDependencies": ["button", "dropdown-menu"],
+      "registryDependencies": ["@wallet-ui/solana-provider", "button", "dropdown-menu"],
       "files": [
         {
           "path": "registry/new-york/blocks/cluster-dropdown/cluster-dropdown.tsx",
@@ -41,7 +41,7 @@
       "title": "Wallet Dropdown",
       "description": "A dropdown menu to select a Solana wallets",
       "dependencies": ["@wallet-ui/react@canary"],
-      "registryDependencies": ["avatar", "button", "dropdown-menu"],
+      "registryDependencies": ["@wallet-ui/solana-provider", "avatar", "button", "dropdown-menu"],
       "files": [
         {
           "path": "registry/new-york/blocks/wallet-dropdown/wallet-dropdown.tsx",
