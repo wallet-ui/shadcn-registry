@@ -57,9 +57,15 @@ function WalletDropdown() {
             <DropdownMenuSeparator />
           </>
         ) : null}
-        {wallets.map(wallet => (
+        {wallets.length ? wallets.map(wallet => (
           <WalletDropdownItem key={wallet.name} wallet={wallet} />
-        ))}
+        )) : (
+          <DropdownMenuItem className='cursor-pointer' asChild>
+            <a href='https://solana.com/solana-wallets' target='_blank' rel='noopener noreferrer'>
+              Get a Solana wallet to connect.
+            </a>
+          </DropdownMenuItem>
+        )}
       </DropdownMenuContent>
     </DropdownMenu>
   );
