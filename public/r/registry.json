@@ -22,7 +22,7 @@
       "type": "registry:component",
       "title": "Solana Provider",
       "description": "A provider that configures Wallet UI for your app.",
-      "dependencies": ["@wallet-ui/react@canary"],
+      "dependencies": ["@wallet-ui/react@canary", "@wallet-ui/react-gill@canary", "gill@latest"],
       "registryDependencies": [],
       "files": [
         {

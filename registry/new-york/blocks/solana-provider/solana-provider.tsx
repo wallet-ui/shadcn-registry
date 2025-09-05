@@ -9,6 +9,7 @@ import {
   createWalletUiConfig,
   WalletUi
 } from '@wallet-ui/react'
+import { WalletUiGillProvider } from '@wallet-ui/react-gill'
 
 export const WalletButton = dynamic(async () => (await import('@wallet-ui/react')).WalletUiDropdown, {
   ssr: false,
@@ -22,5 +23,9 @@ const config = createWalletUiConfig({
 })
 
 export function SolanaProvider({ children }: { children: ReactNode }) {
-  return <WalletUi config={config}>{children}</WalletUi>
+  return <WalletUi config={config}>
+    <WalletUiGillProvider>
+      {children}
+    </WalletUiGillProvider>
+  </WalletUi>
 }
