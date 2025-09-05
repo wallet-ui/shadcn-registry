@@ -2,6 +2,7 @@
 import * as React from "react"
 import { OpenInV0Button } from "@/components/open-in-v0-button"
 import { ClusterDropdown } from "@/registry/new-york/blocks/cluster-dropdown/cluster-dropdown"
+import { WalletDisconnect } from "@/registry/new-york/blocks/wallet-disconnect/wallet-disconnect";
 import { WalletDropdown } from "@/registry/new-york/blocks/wallet-dropdown/wallet-dropdown";
 import {
   codeUpdateLayout,
@@ -88,7 +89,7 @@ export default function Home() {
         <div className="flex flex-col gap-4 border rounded-lg p-4 min-h-[450px] relative">
           <div className="flex items-center justify-between">
             <h2 className="text-sm text-muted-foreground sm:pl-3">
-              A cluster dropdown to select Solana clusters
+              <code className="font-bold">@wallet-ui/cluster-dropdown</code> A cluster dropdown to select Solana clusters
             </h2>
             <OpenInV0Button name="cluster-dropdown" className="w-fit" />
           </div>
@@ -99,7 +100,18 @@ export default function Home() {
         <div className="flex flex-col gap-4 border rounded-lg p-4 min-h-[450px] relative">
           <div className="flex items-center justify-between">
             <h2 className="text-sm text-muted-foreground sm:pl-3">
-              A wallet dropdown to select Solana wallets
+              <code className="font-bold">@wallet-ui/wallet-disconnect</code> A button to disconnect the connected Solana wallets
+            </h2>
+            <OpenInV0Button name="wallet-disconnect" className="w-fit" />
+          </div>
+          <div className="flex flex-col items-center justify-center min-h-[400px] relative">
+            <WalletDisconnect />
+          </div>
+        </div>
+        <div className="flex flex-col gap-4 border rounded-lg p-4 min-h-[450px] relative">
+          <div className="flex items-center justify-between">
+            <h2 className="text-sm text-muted-foreground sm:pl-3">
+              <code className="font-bold">@wallet-ui/wallet-dropdown</code> A wallet dropdown to select Solana wallets
             </h2>
             <OpenInV0Button name="wallet-dropdown" className="w-fit" />
           </div>
@@ -128,6 +140,7 @@ function AccountBalance(props: WalletUiAccountInfo) {
   const balance = query.data?.value?.toString()
   return <div className="flex items-center justify-center relative gap-2">
     <WalletDropdown />
+    <WalletDisconnect />
     <ClusterDropdown />
     {query.isLoading ? 'Loading...' : query.isError ? `${query.error}` : balance ? `${lamportsToSol(Number.parseInt(balance))} SOL` : '?'}
   </div>

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "wallet-disconnect",
+  "type": "registry:component",
+  "title": "Wallet Disconnect",
+  "description": "A button to disconnect the connected Solana wallets",
+  "dependencies": [
+    "@wallet-ui/react@canary"
+  ],
+  "registryDependencies": [
+    "@wallet-ui/solana-provider",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/blocks/wallet-disconnect/wallet-disconnect.tsx",
+      "content": "'use client';\n\nimport * as React from 'react';\nimport { useWalletUi } from '@wallet-ui/react';\nimport { Button } from '@/registry/new-york/ui/button';\n\nfunction WalletDisconnect(props: React.ComponentProps<typeof Button>) {\n  const { connected, disconnect } = useWalletUi();\n  return (\n    <Button\n      variant=\"outline\"\n      className='cursor-pointer'\n      {...props}\n      onClick={disconnect}\n      disabled={!connected}\n    >\n      Disconnect\n    </Button>\n  );\n}\n\n\nexport { WalletDisconnect }",
+      "type": "registry:component"
+    }
+  ]
+}

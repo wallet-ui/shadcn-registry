@@ -36,6 +36,20 @@
       ]
     },
     {
+      "name": "wallet-disconnect",
+      "type": "registry:component",
+      "title": "Wallet Disconnect",
+      "description": "A button to disconnect the connected Solana wallets",
+      "dependencies": ["@wallet-ui/react@canary"],
+      "registryDependencies": ["@wallet-ui/solana-provider", "button"],
+      "files": [
+        {
+          "path": "registry/new-york/blocks/wallet-disconnect/wallet-disconnect.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "wallet-dropdown",
       "type": "registry:component",
       "title": "Wallet Dropdown",
