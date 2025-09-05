@@ -6,9 +6,11 @@ import {
   codeUpdateLayout,
   codeUpdatePage,
   codeUpdateShadcn,
-  InstallationUpdateFile
-} from "@/components/installation-update-file";
+  InstallationCodeBlock
+} from "@/components/installation-code-block";
 import { InstallationInstallPackage } from "@/components/installation-install-package";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { LucideBird } from "lucide-react";
 
 export default function Home() {
   return (
@@ -21,33 +23,46 @@ export default function Home() {
         </p>
       </header>
       <main className="flex flex-col flex-1 gap-8">
+        <Alert variant='warning'>
+          <LucideBird />
+          <AlertTitle className='font-bold'>You&apos;re on the bleeding edge!</AlertTitle>
+          <AlertDescription>
+            <p>
+              These components use a <strong className='font-bold'>canary</strong> release of <code className='font-bold'>@wallet-ui v2.0</code>.
+            </p>
+            <p>
+              Please <a target="_blank" rel="noopener noreferrer" className="underline" href='https://github.com/wallet-ui/wallet-ui/issues'>reach out</a> if you
+              have any issues or suggestions.
+            </p>
+          </AlertDescription>
+        </Alert>
         <h2 className="text-2xl font-bold tracking-tight">Getting started</h2>
         <h3 className="text-xl font-semibold">1. Configure your shadcn config</h3>
         <p className="text-foreground">
-          Add the <code>@wallet-ui</code> registry in your shadcn config.
+          Add the <code className='font-bold'>@wallet-ui</code> registry in your shadcn config.
         </p>
-        <InstallationUpdateFile code={codeUpdateShadcn} />
+        <InstallationCodeBlock code={codeUpdateShadcn} />
         <h3 className="text-xl font-semibold">2. Generate a Solana Provider</h3>
         <p className="text-foreground">
-          Generate the <code>SolanaProvider</code> and the <code>useSolana</code> hook.
+          Generate the <code className='font-bold'>SolanaProvider</code> and the <code className='font-bold'>useSolana</code> hook.
         </p>
         <InstallationInstallPackage packageName='@wallet-ui/solana-provider' />
         <h3 className="text-xl font-semibold">3. Update layout</h3>
         <p className="text-foreground">
-          Add the <code>SolanaProvider</code> to the root layout of your app.
+          Add the <code className='font-bold'>SolanaProvider</code> to the root layout of your app.
         </p>
-        <InstallationUpdateFile code={codeUpdateLayout} />
+        <InstallationCodeBlock code={codeUpdateLayout} />
         <h3 className="text-xl font-semibold">4. Generate the components</h3>
         <p className="text-foreground">
-          Generate the <code>ClusterDropdown</code> and the <code>WalletDropdown</code> components.
+          Generate the <code className='font-bold'>ClusterDropdown</code> and the <code className='font-bold'>WalletDropdown</code> components.
         </p>
         <InstallationInstallPackage packageName='@wallet-ui/cluster-dropdown' />
         <InstallationInstallPackage packageName='@wallet-ui/wallet-dropdown' />
-        <h3 className="text-xl font-semibold">5. Update page</h3>
+        <h3 className="text-xl font-semibold">5. Use the components</h3>
         <p className="text-foreground">
-          Add the <code>ClusterDropdown</code> and the <code>WalletDropdown</code> components to your page.
+          Add the <code className='font-bold'>ClusterDropdown</code> and the <code className='font-bold'>WalletDropdown</code> components to your page.
         </p>
-        <InstallationUpdateFile code={codeUpdatePage} />
+        <InstallationCodeBlock code={codeUpdatePage} />
         <h3 className="text-xl font-semibold">Done!</h3>
         <p className="text-foreground">
           You completed the <a target="_blank" rel="noopener noreferrer" className="underline" href='https://wallet-ui.dev'>Wallet UI</a>{' '}

@@ -35,13 +35,11 @@ export const codeUpdateLayout = [
 import { SolanaProvider } from "@/components/solana-provider";
 
 export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
-  return (
-    <html lang="en" className='dark'>
-      <body >
-        <SolanaProvider>{children}</SolanaProvider>
-      </body>
-    </html>
-  );
+  //...
+    <body >
+      <SolanaProvider>{children}</SolanaProvider>
+    </body>
+  //...
 }
 `,
   },
@@ -75,7 +73,7 @@ export default function Home() {
 ]
 
 
-export function InstallationUpdateFile({ code }: {
+export function InstallationCodeBlock({ code }: {
   code: { language: string; filename: string; code: string }[];
 }) {
   return <CodeBlock data={code} defaultValue={code[0].language}>
@@ -104,7 +102,10 @@ export function InstallationUpdateFile({ code }: {
     <CodeBlockBody>
       {(item) => (
         <CodeBlockItem key={item.language} value={item.language}>
-          <CodeBlockContent language={item.language as BundledLanguage}>
+          <CodeBlockContent language={item.language as BundledLanguage} themes={{
+            dark: 'github-dark',
+            light: 'github-light',
+          }}>
             {item.code}
           </CodeBlockContent>
         </CodeBlockItem>
