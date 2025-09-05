@@ -1,0 +1,22 @@
+pre-commit:
+  jobs:
+    - run: pnpm run registry:build
+      glob:
+        - "*.js"
+        - "*.json"
+        - "*.jsx"
+        - "*.ts"
+        - "*.tsx"
+      stage_fixed: true
+      interactive: true
+pre-push:
+  jobs:
+    - run: pnpm run build
+      glob:
+        - "*.js"
+        - "*.json"
+        - "*.jsx"
+        - "*.ts"
+        - "*.tsx"
+      stage_fixed: false
+      interactive: true
