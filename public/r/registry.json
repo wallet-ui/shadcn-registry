@@ -12,7 +12,7 @@
       "registryDependencies": ["@wallet-ui/solana-provider", "button", "dropdown-menu"],
       "files": [
         {
-          "path": "registry/new-york/blocks/cluster-dropdown/cluster-dropdown.tsx",
+          "path": "registry/wallet-ui/blocks/cluster-dropdown/cluster-dropdown.tsx",
           "type": "registry:component"
         }
       ]
@@ -26,15 +26,15 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "registry/new-york/blocks/solana-provider/solana-provider.tsx",
+          "path": "registry/wallet-ui/blocks/solana-provider/solana-provider.tsx",
           "type": "registry:component"
         },
         {
-          "path": "registry/new-york/blocks/solana-provider/solana-mobile-wallet-adapter.ts",
+          "path": "registry/wallet-ui/blocks/solana-provider/solana-mobile-wallet-adapter.ts",
           "type": "registry:component"
         },
         {
-          "path": "registry/new-york/blocks/solana-provider/use-solana.tsx",
+          "path": "registry/wallet-ui/blocks/solana-provider/use-solana.tsx",
           "type": "registry:hook"
         }
       ]
@@ -48,7 +48,7 @@
       "registryDependencies": ["@wallet-ui/solana-provider", "button"],
       "files": [
         {
-          "path": "registry/new-york/blocks/wallet-disconnect/wallet-disconnect.tsx",
+          "path": "registry/wallet-ui/blocks/wallet-disconnect/wallet-disconnect.tsx",
           "type": "registry:component"
         }
       ]
@@ -62,7 +62,7 @@
       "registryDependencies": ["@wallet-ui/solana-provider", "avatar", "button", "dropdown-menu"],
       "files": [
         {
-          "path": "registry/new-york/blocks/wallet-dropdown/wallet-dropdown.tsx",
+          "path": "registry/wallet-ui/blocks/wallet-dropdown/wallet-dropdown.tsx",
           "type": "registry:component"
         }
       ]
