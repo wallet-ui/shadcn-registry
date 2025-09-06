@@ -1,9 +1,9 @@
 'use client'
 import * as React from "react"
 import { OpenInV0Button } from "@/components/open-in-v0-button"
-import { ClusterDropdown } from "@/registry/new-york/blocks/cluster-dropdown/cluster-dropdown"
-import { WalletDisconnect } from "@/registry/new-york/blocks/wallet-disconnect/wallet-disconnect";
-import { WalletDropdown } from "@/registry/new-york/blocks/wallet-dropdown/wallet-dropdown";
+import { ClusterDropdown } from "@/registry/wallet-ui/blocks/cluster-dropdown/cluster-dropdown"
+import { WalletDisconnect } from "@/registry/wallet-ui/blocks/wallet-disconnect/wallet-disconnect";
+import { WalletDropdown } from "@/registry/wallet-ui/blocks/wallet-dropdown/wallet-dropdown";
 import {
   codeUpdateLayout,
   codeUpdatePage,
@@ -14,7 +14,7 @@ import { InstallationInstallPackage } from "@/components/installation-install-pa
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { LucideBird } from "lucide-react";
 import { address, lamportsToSol } from "gill";
-import { useSolana } from "@/registry/new-york/blocks/solana-provider/use-solana";
+import { useSolana } from "@/registry/wallet-ui/blocks/solana-provider/use-solana";
 import { WalletUiAccountGuard, WalletUiAccountInfo } from "@wallet-ui/react";
 import { useQuery } from "@tanstack/react-query";
 

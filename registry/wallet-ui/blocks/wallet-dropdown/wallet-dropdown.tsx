@@ -6,11 +6,11 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/registry/new-york/ui/dropdown-menu';
+} from '@/registry/wallet-ui/ui/dropdown-menu';
 import * as React from 'react';
 import { ellipsify, UiWallet, useWalletUi, useWalletUiWallet } from '@wallet-ui/react';
-import { Button } from '@/registry/new-york/ui/button';
-import { Avatar, AvatarFallback, AvatarImage } from '@/registry/new-york/ui/avatar';
+import { Button } from '@/registry/wallet-ui/ui/button';
+import { Avatar, AvatarFallback, AvatarImage } from '@/registry/wallet-ui/ui/avatar';
 import { cn } from '@/lib/utils';
 
 function WalletAvatar({ className, wallet }: { className?: string; wallet: UiWallet }) {

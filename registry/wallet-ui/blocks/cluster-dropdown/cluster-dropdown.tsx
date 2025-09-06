@@ -2,14 +2,14 @@
 
 import * as React from 'react';
 import { SolanaClusterId, useWalletUi, useWalletUiCluster } from '@wallet-ui/react';
-import { Button } from "@/registry/new-york/ui/button"
+import { Button } from "@/registry/wallet-ui/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
-} from '@/registry/new-york/ui/dropdown-menu';
+} from '@/registry/wallet-ui/ui/dropdown-menu';
 
 export function ClusterDropdown() {
   const { cluster } = useWalletUi();
