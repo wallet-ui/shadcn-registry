@@ -17,6 +17,10 @@ import { address, lamportsToSol } from "gill";
 import { useSolana } from "@/registry/wallet-ui/blocks/solana-provider/use-solana";
 import { WalletUiAccountGuard, WalletUiAccountInfo } from "@wallet-ui/react";
 import { useQuery } from "@tanstack/react-query";
+import { getRegistryBaseUrl } from "@/lib/get-registry-url";
+
+export const dynamic = 'force-dynamic';
+const registryBaseUrl = getRegistryBaseUrl()
 
 export default function Home() {
   return (
@@ -36,6 +40,7 @@ export default function Home() {
           to theme your components!
         </p>
       </header>
+      {registryBaseUrl}
       <main className="flex flex-col flex-1 gap-8">
         <Alert variant='warning'>
           <LucideBird />
@@ -66,7 +71,7 @@ export default function Home() {
         <p className="text-foreground">
           Add the <code className='font-bold'>@wallet-ui</code> registry in your shadcn config.
         </p>
-        <InstallationCodeBlock code={codeUpdateShadcn} />
+        <InstallationCodeBlock code={codeUpdateShadcn(registryBaseUrl)} />
         <h3 className="text-xl font-semibold">2. Generate the components</h3>
         <p className="text-foreground">
           Generate the <code className='font-bold'>SolanaProvider</code> with the {' '}
