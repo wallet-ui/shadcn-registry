@@ -14,19 +14,22 @@ import {
   CodeBlockSelectItem,
 } from '@/components/ui/shadcn-io/code-block';
 
-export const codeUpdateShadcn = [
-  {
-    language: 'json',
-    filename: 'components.json',
-    code: `{
+export function codeUpdateShadcn(baseUrl: string) {
+  return [
+    {
+      language: 'json',
+      filename: 'components.json',
+      code: `{
   "$schema": "https://ui.shadcn.com/schema.json",
   //... shadcn config
   "registries": {
-    "@wallet-ui": "https://registry.wallet-ui.dev/r/{name}.json"
+    "@wallet-ui": "${baseUrl}/r/{name}.json"
   }
 }`,
-  },
-]
+    },
+  ];
+}
+
 export const codeUpdateLayout = [
   {
     language: 'tsx',
