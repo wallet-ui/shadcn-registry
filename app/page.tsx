@@ -13,11 +13,11 @@ import {
 import { InstallationInstallPackage } from "@/components/installation-install-package";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { LucideBird } from "lucide-react";
-import { address, lamportsToSol } from "gill";
-import { useSolana } from "@/registry/wallet-ui/blocks/solana-provider/use-solana";
+import { lamportsToSol } from "gill";
 import { WalletUiAccountGuard, WalletUiAccountInfo } from "@wallet-ui/react";
-import { useQuery } from "@tanstack/react-query";
 import { getRegistryBaseUrl } from "@/lib/get-registry-url";
+import { AppHeader } from "@/components/app-header";
+import { useGetBalance } from "@/registry/wallet-ui/blocks/solana-hooks/use-get-balance";
 
 export const dynamic = 'force-dynamic';
 const registryBaseUrl = getRegistryBaseUrl()
@@ -25,21 +25,7 @@ const registryBaseUrl = getRegistryBaseUrl()
 export default function Home() {
   return (
     <div className="max-w-3xl mx-auto flex flex-col min-h-svh px-4 py-8 gap-8">
-      <header className="flex flex-col gap-2">
-        <h1 className="text-3xl font-bold tracking-tight">Wallet UI Shadcn Registry</h1>
-        <p className="text-muted-foreground">
-          The <a target="_blank" rel="noopener noreferrer" className="underline" href='https://ui.shadcn.com/docs/registry'>Shadcn registry</a>{' '}
-          for <a target="_blank" rel="noopener noreferrer" className="underline" href='https://wallet-ui.dev'>Wallet UI</a> components
-          gets you started with Solana faster than ever!
-        </p>
-        <p className="text-muted-foreground">
-          Support for Solana Mobile comes out of the box!
-        </p>
-        <p className="text-muted-foreground">
-          Head over to <a target="_blank" rel="noopener noreferrer" className="underline" href='https://tweakcn.com/editor/theme'>tweakcn</a>{' '}
-          to theme your components!
-        </p>
-      </header>
+      <AppHeader />
       {registryBaseUrl}
       <main className="flex flex-col flex-1 gap-8">
         <Alert variant='warning'>
@@ -140,18 +126,9 @@ export default function Home() {
 }
 
 
-function useBalanceQuery({account, accountKeys}: WalletUiAccountInfo) {
-  const { client } = useSolana()
-
-  return useQuery({
-    retry: false,
-    queryKey: accountKeys,
-    queryFn: () => client.rpc.getBalance(address(account.address)).send(),
-  })
-}
 
 function AccountBalance(props: WalletUiAccountInfo) {
-  const query = useBalanceQuery(props)
+  const query = useGetBalance({ address: props.account.address })
   const balance = query.data?.value?.toString()
   return <div className="flex items-center justify-center relative gap-2">
     <WalletDropdown />
