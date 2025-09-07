@@ -10,7 +10,6 @@ import {
 
 export function solanaMobileWalletAdapter({ appIdentity = { name: 'Wallet UI' }, clusters }: { appIdentity?: { uri?: string; icon?: string; name?: string }, clusters: SolanaCluster[] }) {
   if (typeof window === 'undefined') {
-    console.warn(`Solana Mobile Wallet Adapter not loaded: no window object`)
     return
   }
   if (!window.isSecureContext) {
