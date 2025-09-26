@@ -5,7 +5,7 @@
   "title": "Wallet Disconnect",
   "description": "A button to disconnect the connected Solana wallets",
   "dependencies": [
-    "@wallet-ui/react@canary"
+    "@wallet-ui/react@latest"
   ],
   "registryDependencies": [
     "@wallet-ui/solana-provider",

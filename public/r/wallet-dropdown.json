@@ -5,7 +5,7 @@
   "title": "Wallet Dropdown",
   "description": "A dropdown menu to select a Solana wallets",
   "dependencies": [
-    "@wallet-ui/react@canary"
+    "@wallet-ui/react@latest"
   ],
   "registryDependencies": [
     "@wallet-ui/solana-provider",

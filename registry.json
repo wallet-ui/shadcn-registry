@@ -8,7 +8,7 @@
       "type": "registry:component",
       "title": "Cluster Dropdown",
       "description": "A dropdown menu to select a Solana cluster",
-      "dependencies": ["@wallet-ui/react@canary"],
+      "dependencies": ["@wallet-ui/react@latest"],
       "registryDependencies": ["@wallet-ui/solana-provider", "button", "dropdown-menu"],
       "files": [
         {
@@ -22,7 +22,7 @@
       "type": "registry:component",
       "title": "Solana Provider",
       "description": "A provider that configures Wallet UI for your app.",
-      "dependencies": ["@wallet-ui/react@canary", "@wallet-ui/react-gill@canary", "@solana-mobile/wallet-standard-mobile", "gill@latest"],
+      "dependencies": ["@wallet-ui/react@latest", "@wallet-ui/react-gill@latest", "@solana-mobile/wallet-standard-mobile", "gill@latest"],
       "registryDependencies": [],
       "files": [
         {
@@ -44,7 +44,7 @@
       "type": "registry:component",
       "title": "Wallet Disconnect",
       "description": "A button to disconnect the connected Solana wallets",
-      "dependencies": ["@wallet-ui/react@canary"],
+      "dependencies": ["@wallet-ui/react@latest"],
       "registryDependencies": ["@wallet-ui/solana-provider", "button"],
       "files": [
         {
@@ -58,7 +58,7 @@
       "type": "registry:component",
       "title": "Wallet Dropdown",
       "description": "A dropdown menu to select a Solana wallets",
-      "dependencies": ["@wallet-ui/react@canary"],
+      "dependencies": ["@wallet-ui/react@latest"],
       "registryDependencies": ["@wallet-ui/solana-provider", "avatar", "button", "dropdown-menu"],
       "files": [
         {

@@ -5,8 +5,8 @@
   "title": "Solana Provider",
   "description": "A provider that configures Wallet UI for your app.",
   "dependencies": [
-    "@wallet-ui/react@canary",
-    "@wallet-ui/react-gill@canary",
+    "@wallet-ui/react@latest",
+    "@wallet-ui/react-gill@latest",
     "@solana-mobile/wallet-standard-mobile",
     "gill@latest"
   ],

@@ -5,7 +5,7 @@
   "title": "Cluster Dropdown",
   "description": "A dropdown menu to select a Solana cluster",
   "dependencies": [
-    "@wallet-ui/react@canary"
+    "@wallet-ui/react@latest"
   ],
   "registryDependencies": [
     "@wallet-ui/solana-provider",

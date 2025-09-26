@@ -11,8 +11,6 @@ import {
   InstallationCodeBlock
 } from "@/components/installation-code-block";
 import { InstallationInstallPackage } from "@/components/installation-install-package";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { LucideBird } from "lucide-react";
 import { address, lamportsToSol } from "gill";
 import { useSolana } from "@/registry/wallet-ui/blocks/solana-provider/use-solana";
 import { WalletUiAccountGuard, WalletUiAccountInfo } from "@wallet-ui/react";
@@ -21,19 +19,6 @@ import { useQuery } from "@tanstack/react-query";
 export function HomeFeature({ registryBaseUrl }: { registryBaseUrl: string }) {
   return (
     <main className="flex flex-col flex-1 gap-8">
-      <Alert variant='warning'>
-        <LucideBird />
-        <AlertTitle className='font-bold'>You&apos;re on the bleeding edge!</AlertTitle>
-        <AlertDescription>
-          <p>
-            These components use a <strong className='font-bold'>canary</strong> release of <code className='font-bold'>@wallet-ui v2.0</code>.
-          </p>
-          <p>
-            Please <a target="_blank" rel="noopener noreferrer" className="underline" href='https://github.com/wallet-ui/wallet-ui/issues'>reach out</a> if you
-            have any issues or suggestions.
-          </p>
-        </AlertDescription>
-      </Alert>
       <div className="flex flex-col gap-4 border rounded-lg p-4 min-h-[450px] relative">
         <div className="flex items-center justify-between">
           <h2 className="text-sm text-muted-foreground sm:pl-3">
